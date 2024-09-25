@@ -29,3 +29,11 @@ test("should support custom delimiters", () => {
   const result = add("//;\n1;2");
   expect(result).toBe(3);
 });
+
+test("should throw an exception for negative numbers", () => {
+  expect(() => add("1,-2,3")).toThrow("Negative numbers not allowed: -2");
+});
+
+test("should throw an exception for multiple negative numbers", () => {
+  expect(() => add("1,-2,-3")).toThrow("Negative numbers not allowed: -2,-3");
+});
