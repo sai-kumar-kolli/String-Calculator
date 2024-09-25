@@ -9,3 +9,14 @@ test("should return the number itself for a single number input", () => {
   const result = add("1");
   expect(result).toBe(1);
 });
+
+test("should return the sum of two numbers separated by a comma", () => {
+  const result = add("1,2");
+  expect(result).toBe(3);
+});
+
+test("should return the sum of multiple numbers separated by a comma", () => {
+    const result = add("1,2");
+    expect(result).toBe(3);
+  });
+  
