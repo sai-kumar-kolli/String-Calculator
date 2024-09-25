@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import CalculatorInput from "./components/input";
 import CalculatorButton from "./components/button";
@@ -8,6 +8,12 @@ function App() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (error) {
+      setResult(null);
+    }
+  }, []);
 
   const handleCalculate = () => {
     try {
