@@ -3,7 +3,8 @@ import "./App.css";
 import CalculatorInput from "./components/input";
 import CalculatorButton from "./components/button";
 import { add } from "./utilis/addUtili";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState(null);
@@ -11,9 +12,12 @@ function App() {
 
   useEffect(() => {
     if (error) {
+      toast.error(error, {
+        onClose: () => setError(""),
+      });
       setResult(null);
     }
-  }, []);
+  }, [error]);
 
   const handleCalculate = () => {
     try {
@@ -43,8 +47,8 @@ function App() {
           name="Clear"
         />
       </div>
-      {error && <p className="error">{error}</p>}
       <p className="result">{result}</p>
+      <ToastContainer />
     </div>
   );
 }
