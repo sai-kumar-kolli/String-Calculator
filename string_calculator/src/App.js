@@ -5,6 +5,7 @@ import CalculatorButton from "./components/button";
 import { add } from "./utilis/addUtili";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState(null);
@@ -18,6 +19,7 @@ function App() {
       setResult(null);
     }
   }, [error]);
+
 
   const handleCalculate = () => {
     try {
@@ -49,6 +51,7 @@ function App() {
       </div>
       <p className="result">{result}</p>
       <ToastContainer />
+      <p className="result">{result}</p>
     </div>
   );
 }
