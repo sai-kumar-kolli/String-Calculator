@@ -3,11 +3,17 @@ export const add = (numbers) => {
   if (numbers === "") {
     return null;
   }
-  const formattedNumbers = numbers.replace(/\n/g, ",");
-  const numberArray = formattedNumbers.split(",");
-  if (numberArray.length === 1) {
-    return parseInt(numbers, 10);
+  let delimiter = ",";
+  let numbersPart = numbers;
+
+  if (numbers.startsWith("//")) {
+    const delimiterEndIndex = numbers.indexOf("\n");
+    delimiter = numbers.substring(2, delimiterEndIndex);
+    numbersPart = numbers.substring(delimiterEndIndex + 1);
   }
+
+  const formattedNumbers = numbersPart.replace(/\n/g, delimiter);
+  const numberArray = formattedNumbers.split(delimiter);
 
   return numberArray.reduce((sum, num) => sum + parseInt(num, 10), 0);
 };
