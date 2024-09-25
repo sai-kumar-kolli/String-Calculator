@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import "./App.css";
 import CalculatorInput from "./components/input";
 import CalculatorButton from "./components/button";
+import { add } from "./utilis/addUtili";
 
 function App() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState(null);
 
   const handleCalculate = () => {
-    setResult(input);
+    let sum = add(input);
+    setResult(sum);
   };
 
   return (
