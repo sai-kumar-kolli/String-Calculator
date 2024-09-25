@@ -7,14 +7,21 @@ import { add } from "./utilis/addUtili";
 function App() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState(null);
+  const [error, setError] = useState("");
 
   const handleCalculate = () => {
-    let sum = add(input);
-    setResult(sum);
+    try {
+      let sum = add(input);
+      setResult(sum);
+      setError("");
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
     <div className="App-header">
+      <h1>Srting Calculator</h1>
       <div className="calculator-container">
         <CalculatorInput
           input={input}
@@ -25,10 +32,12 @@ function App() {
           onClick={() => {
             setInput("");
             setResult(null);
+            setError("");
           }}
           name="Clear"
         />
       </div>
+      {error && <p className="error">{error}</p>}
       <p className="result">{result}</p>
     </div>
   );

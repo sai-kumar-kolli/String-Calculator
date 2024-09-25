@@ -2,7 +2,7 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
@@ -10,12 +10,12 @@
 
 .calculator-container {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   gap: 2rem;
 }
 
 .result {
-  margin-top: 20px; 
+  margin-top: 20px;
   font-size: 20px;
   text-align: center;
 }
@@ -45,4 +45,15 @@
 
 .calculator-button:hover {
   background-color: #45a049;
+}
+
+.error {
+  color: red;
+  background-color: #fdecea;
+  padding: 10px;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 300px;
+  text-align: center;
 }
