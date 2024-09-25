@@ -15,5 +15,10 @@ export const add = (numbers) => {
   const formattedNumbers = numbersPart.replace(/\n/g, delimiter);
   const numberArray = formattedNumbers.split(delimiter);
 
+  const negatives = numberArray.filter((num) => parseInt(num, 10) < 0);
+  if (negatives.length > 0) {
+    throw new Error(`Negative numbers not allowed: ${negatives.join(",")}`);
+  }
+
   return numberArray.reduce((sum, num) => sum + parseInt(num, 10), 0);
 };
